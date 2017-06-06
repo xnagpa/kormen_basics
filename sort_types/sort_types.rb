@@ -66,6 +66,23 @@ class SortTypes
     arr
   end
 
-  def quick(arr)
+  def quick(arr, left, right)
+    return if left >= right
+    wall = partition(arr, left, right)
+    quick(arr, left, wall - 1)
+    quick(arr, wall + 1, right)
+    arr
+  end
+
+  def partition(arr, left, right)
+    wall = left
+    (left..right - 1).each do |u|
+      if arr[u] <= arr[right]
+        change(arr, wall, u)
+        wall += 1
+      end
+    end
+    change(arr, wall, right)
+    wall
   end
 end

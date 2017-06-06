@@ -26,7 +26,7 @@ RSpec.describe SortTypes do
   context '#quick' do
     arr = [4, 5, 3, 1, 2, 6, 7]
     it 'sorts the array' do
-      expect(subject.quick(arr)).to eq [1, 2, 3, 4, 5, 6, 7]
+      expect(subject.quick(arr, 0, 6)).to eq [1, 2, 3, 4, 5, 6, 7]
     end
   end
 end
